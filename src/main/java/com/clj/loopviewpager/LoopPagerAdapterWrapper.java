@@ -26,7 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * 1
+ * 1234
  * A PagerAdapter wrapper responsible for providing a proper page to
  * LoopViewPager
  * 
