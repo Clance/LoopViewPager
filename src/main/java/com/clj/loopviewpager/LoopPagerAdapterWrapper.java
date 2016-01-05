@@ -33,7 +33,6 @@ import android.view.ViewGroup;
  */
 public class LoopPagerAdapterWrapper extends PagerAdapter {
     private PagerAdapter mAdapter;
-    //22234
     private SparseArray<ToDestroy> mToDestroy = new SparseArray<>();
 
     private boolean mBoundaryCaching;
