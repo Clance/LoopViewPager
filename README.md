@@ -7,7 +7,7 @@
 
 
 #		使用方法：
-
+####		compile 'com.clj.loopviewpager:loopviewpager:0.0.2'
 ####		1、xml  
 		<com.clj.loopviewpager.LoopViewPager
         android:id="@+id/loopviewpager"
