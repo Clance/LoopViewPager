@@ -70,6 +70,9 @@ install {
         }
     }
 }
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
@@ -84,15 +87,20 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
 }
+
 artifacts {
-//    archives javadocJar
+    archives javadocJar
     archives sourcesJar
 }
+
+// Bintray
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
+
     configurations = ['archives']
     pkg {
         repo = "maven"
@@ -101,5 +109,13 @@ bintray {
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
         publish = true
+        publicDownloadNumbers = true
+        version {
+            gpg {
+                sign = true //Determines whether to GPG sign the files. The default is false
+                passphrase = properties.getProperty("bintray.gpg.password")
+                //Optional. The passphrase for GPG signing'
+            }
+        }
     }
 }
