@@ -4,7 +4,7 @@ apply plugin: 'com.jfrog.bintray'
 //apply plugin: 'bintray-release'
 // 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
 // 这个version影响后面的引用
-version = "1.0.0"
+version = "0.0.1"
 android {
     resourcePrefix "clj"
     compileSdkVersion 23
@@ -96,7 +96,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "loop-viewpager"    //发布到JCenter上的项目名字
+        name = "loopviewpager"    //发布到JCenter上的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
